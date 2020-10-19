@@ -42,6 +42,7 @@ export default {
   const orphanagesRepository = getRepository(Orphanage);
 
   const requestImages = request.files as Express.Multer.File[];
+
   const images = requestImages.map(image => {
     return { path: image.filename };
   });
@@ -53,7 +54,7 @@ export default {
     about, 
     instructions,
     opening_hours, 
-    open_on_weekends,
+    open_on_weekends: open_on_weekends === 'true',
     images,
   };
 
